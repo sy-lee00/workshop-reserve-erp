@@ -25,7 +25,7 @@ COPY --from=frontend-build /app/frontend/build ./src/main/resources/static/
 RUN ./gradlew build -x test --no-daemon
 
 # 3단계: 최종 실행 환경 (가볍고 안전한 Slim 이미지 사용)
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jre-jammy
 EXPOSE 8080
 
 # 빌드된 jar 파일을 실행 파일로 복사
